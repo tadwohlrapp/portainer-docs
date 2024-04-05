@@ -20,6 +20,10 @@ In general, we recommend updating your Portainer Server deployment _before_ you 
 
 ### From within Portainer
 
+{% hint style="warning" %}
+Updating from within Portainer to STS versions (or within STS versions) is currently not available. Only LTS versions will be offered through the in-app update. To switch to or update to STS versions, follow the [manual instructions](./#manually-update-portainer) below.
+{% endhint %}
+
 From 2.19, Business Edition users are able to update their Portainer installation directly from within Portainer. To do so, click the **Update now** link in the update notification in the bottom left of the Portainer UI.
 
 <figure><img src="../../.gitbook/assets/2.19-update-notification.png" alt=""><figcaption></figcaption></figure>
