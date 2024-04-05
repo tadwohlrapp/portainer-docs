@@ -31,14 +31,14 @@ Next, run one of the following commands to update to version 2.20 of Portainer:
 {% tab title="Business Edition" %}
 ```
 helm upgrade -n portainer portainer portainer/portainer \
-    --set enterpriseEdition.image.tag=2.20.0
+    --set enterpriseEdition.image.tag=2.20.1
 ```
 {% endtab %}
 
 {% tab title="Community Edition" %}
 ```
 helm upgrade -n portainer portainer portainer/portainer \
-    --set image.tag=2.20.0
+    --set image.tag=2.20.1
 ```
 {% endtab %}
 {% endtabs %}

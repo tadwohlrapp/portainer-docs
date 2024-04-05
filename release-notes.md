@@ -2,6 +2,37 @@
 
 The following release notes are for the **Business Edition** of Portainer. For **Community Edition** release notes, refer to the [GitHub releases page](https://github.com/portainer/portainer/releases).
 
+## Release 2.20.1
+
+April 5, 2024
+
+### Overview of changes
+
+Introducing the new Portainer BE 2.20.1 release. This is an STS (Short-Term Support) release.
+
+As you gear up for the transition to Portainer BE 2.20.1, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to back up your configurations via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
+
+A Short-Term Support release can be considered as "bleeding-edge" as it will contain the latest features and functionality we've developed. The STS releases (including this one) will go through a significant amount of pre-release testing, but there may be changes that could cause regressions and features that might see further iterations. As such, if stability is a crucial concern for your setup we wouldn't recommend deploying STS releases on production environments.
+
+Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
+
+### Important Note Regarding Docker 26 Support
+
+Please be aware that support for Docker 26 is provided on an "as-is" basis and is primarily driven by best-effort principles. Minimal regression testing has been conducted to ensure basic functionality. Users should proceed with caution and report any issues they encounter.
+
+### Docker
+
+* Resolved an issue where Docker 25/26 API changes affected container-related pages and image size display [portainer/portainer#11504](https://github.com/portainer/portainer/issues/11504)
+
+### Kubernetes
+
+* Resolved an issue where deploying GitOps edge stacks on a Kubernetes edge device resulted in error [portainer/portainer#11503](https://github.com/portainer/portainer/issues/11503)
+* Resolved an issue where the secret owner migration process could lead to a deadlock, preventing the HTTP(S) server from starting. [portainer/portainer#11501](https://github.com/portainer/portainer/issues/11501)
+
+### Portainer
+
+* Fixed an issue where local stacks were being overwritten by orphaned stacks with the same name in the regular stack listing page [portainer/portainer#11502](https://github.com/portainer/portainer/issues/11502)
+
 ## Release 2.20.0
 
 March 19, 2024
