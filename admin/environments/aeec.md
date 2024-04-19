@@ -31,16 +31,6 @@ Once you have made your type selection, configure the options and select the pla
 
 <figure><img src="../../.gitbook/assets/2.18-environments-autoonboarding-config.png" alt=""><figcaption></figcaption></figure>
 
-The following options only appear if the **Nomad** option has been selected in the command section below.
-
-| Field/Option                 | Overview                                                           |
-| ---------------------------- | ------------------------------------------------------------------ |
-| Nomad Authentication Enabled | Toggle this on if your Nomad environments require authentication.  |
-| Nomad Token                  | If Nomad authentication is enabled, define the Nomad token to use. |
-| TLS                          | Toggle this on if your Nomad installation uses TLS.                |
-
-<figure><img src="../../.gitbook/assets/2.18-environments-autoonboarding-nomad.png" alt=""><figcaption></figcaption></figure>
-
 Select the environment of your deployment and click **Copy** to copy the script to your clipboard.
 
-<figure><img src="../../.gitbook/assets/2.18-environments-autoonboarding-command.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2.20-environments-aeec-script.png" alt=""><figcaption></figcaption></figure>

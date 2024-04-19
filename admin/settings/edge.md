@@ -63,28 +63,13 @@ To remove a user from the Edge Administrator role, check the box next to their u
 
 ## Automatic Edge Environment Creation
 
-In this section you can configure how automatic Edge environment configuration functions as well as customize and retrieve your Edge agent deployment script, for use when preloading Edge Devices with a Portainer Edge Agent container and configuration.
+In this section you can configure how automatic Edge environment configuration functions.
 
-| Field/Option                          | Overview                                                                                                                                                                                                                                                                             |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Disable Edge Environment Waiting Room | Toggle this on to disable the [waiting room](../../user/edge/waiting-room.md) feature for Edge devices. This will allow any Edge Device that connects to the Portainer instance to automatically associate with Portainer. We recommend leaving this off (the waiting room enabled). |
+| Field/Option                         | Overview                                                                                                                                                                                                                                                                           |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enable Edge Environment Waiting Room | Toggle this on to enable the [waiting room](../../user/edge/waiting-room.md) feature for Edge devices. This will allow any Edge Device that connects to the Portainer instance to automatically associate with Portainer. We recommend leaving this on (the waiting room enabled). |
 
-<figure><img src="../../.gitbook/assets/2.17-settings-edge-aeec-waitingroom.png" alt=""><figcaption></figcaption></figure>
-
-Configure the options and select the platform (Linux or Windows) to generate your Edge agent deployment scripts.
-
-| Field/Option                 | Overview                                                                                                                                               |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Edge ID Generator            | Provide a one-line script that will be used to generate a unique ID for your Edge devices. For Linux, an example would be using the `uuidgen` command. |
-| Nomad Authentication Enabled | If you have selected a Nomad environment, toggle this to enable authentication.                                                                        |
-| Nomad Token                  | If Nomad authentication is enabled, define the Nomad token to use.                                                                                     |
-| TLS                          | Toggle this on if your Nomad installation uses TLS.                                                                                                    |
-| Environment variables        | Define a comma separated list of environment variables that will be sourced from the Edge device for use in Portainer.                                 |
-| Allow self-signed certs      | Toggle this to permit the use of self-signed certificates for the communication between the Edge Agent and the Portainer server.                       |
-
-<figure><img src="../../.gitbook/assets/2.15-settings-edgecompute-aeec-config-2.png" alt=""><figcaption></figcaption></figure>
-
-Select the environment of your deployment and click **Copy** to copy the script to your clipboard.
+<figure><img src="../../.gitbook/assets/2.20-settings-edge-aeec.png" alt=""><figcaption></figcaption></figure>
 
 ## Intel OpenAMT
 
