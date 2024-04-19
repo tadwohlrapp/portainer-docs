@@ -13,7 +13,7 @@ Portainer consists of two elements, the _Portainer Server_, and the _Portainer A
 To get started, you will need:
 
 * The latest version of Docker installed and working.
-* Swarm mode enabled and working, including the overlay network for the swarm service communication.
+* Swarm mode [enabled](https://docs.docker.com/engine/swarm/swarm-mode/) and working, including the overlay network for the swarm service communication.
 * Administrator access on the manager node of your Swarm cluster.
 * By default, Portainer will expose the UI over port `9443` and expose a TCP tunnel server over port `8000`. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.
 * The manager and worker nodes must be able to communicate with each other over port `9001`.
