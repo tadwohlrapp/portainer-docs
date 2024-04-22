@@ -2,6 +2,14 @@
 
 The following release notes are for the **Business Edition** of Portainer. For **Community Edition** release notes, refer to the [GitHub releases page](https://github.com/portainer/portainer/releases).
 
+## Release 2.19.5
+
+April 22, 2024
+
+### Portainer
+
+* Resolved CVE-2024-29296 by creating uniform response time for login attempts
+
 ## Release 2.19.4
 
 December 6, 2023
