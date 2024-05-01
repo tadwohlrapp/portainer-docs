@@ -2,6 +2,90 @@
 
 The following release notes are for the **Business Edition** of Portainer. For **Community Edition** release notes, refer to the [GitHub releases page](https://github.com/portainer/portainer/releases).
 
+## Release 2.20.2
+
+1 May, 2024
+
+### Overview of changes
+
+Introducing the new Portainer BE 2.20.2 release. This is an STS (Short-Term Support) release.
+
+As you gear up for the transition to Portainer BE 2.20.2, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to back up your configurations via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
+
+A Short-Term Support release can be considered as "bleeding-edge" as it will contain the latest features and functionality we've developed. The STS releases (including this one) will go through a significant amount of pre-release testing, but there may be changes that could cause regressions and features that might see further iterations. As such, if stability is a crucial concern for your setup we wouldn't recommend deploying STS releases on production environments.
+
+Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
+
+### Resolved CVEs
+
+* Resolved CVE vulnerabilities for Windows images [portainer/portainer#11716](https://github.com/portainer/portainer/issues/11716)
+* Updated kubectl to resolve CVEs. [portainer/portainer#11741](https://github.com/portainer/portainer/issues/11741)
+* Resolved CVE vulnerabilities for docker binary [portainer/portainer#11717](https://github.com/portainer/portainer/issues/11717)
+* Resolved CVE vulnerabilities for protobuf [portainer/portainer#11718](https://github.com/portainer/portainer/issues/11718)
+* Resolved CVE vulnerabilities for crypto [portainer/portainer#11719](https://github.com/portainer/portainer/issues/11719)
+* Updated [k8s.io/apiserver](http://k8s.io/apiserver) and Helm to resolve CVEs. [portainer/portainer#11740](https://github.com/portainer/portainer/issues/11740)
+* Resolved CVE vulnerabilities for containerd
+* Updated Docker client library to resolve CVEs. [portainer/portainer#11738](https://github.com/portainer/portainer/issues/11738)
+* Resolved CVE vulnerabilities for otelgrpc
+* Resolved CVE vulnerabilities for stdlib [portainer/portainer#11720](https://github.com/portainer/portainer/issues/11720)
+* Resolved CVE-2024-29296 by creating uniform response time for login attempts. [portainer/portainer#11736](https://github.com/portainer/portainer/issues/11736)
+* Resolved a CVE regarding data encryption. [portainer/portainer#11737](https://github.com/portainer/portainer/issues/11737)
+* Updated Docker Compose to resolve CVEs. [portainer/portainer#11739](https://github.com/portainer/portainer/issues/11739)
+* Updated OPA Gatekeeper for Pod security constraints feature in order to resolve CVEs.
+
+### Edge
+
+* Resolved an issue with the edge post initiation migration runner to ensure it runs migrations at the appropriate time, when connection between an edge environment and Portainer server has been established. [portainer/portainer#11733](https://github.com/portainer/portainer/issues/11733)
+
+### Docker
+
+* Resolved an issue that caused errors when users attempted to connect to their Docker environment via API using HTTPS [portainer/portainer#11721](https://github.com/portainer/portainer/issues/11721)
+* Provided info text in the UI to clearly explain environment variables stack.env file usage when deploying Docker stacks via Git vs. other methods. [portainer/portainer#11732](https://github.com/portainer/portainer/issues/11732)
+
+### Kubernetes
+
+* Ensured confirmed support of vanilla Kubernetes 1.30 clusters. [portainer/portainer#11730](https://github.com/portainer/portainer/issues/11730)
+* Fixed a bug with 2.20 migrating of Kubernetes secrets ownership to an improved model where the migration was not being flagged as complete.
+* Resolved an issue with Kubernetes environments that have a significant number of services where the Dashboard services panel never completed loading and the loading spinner was indefinitely displayed. [portainer/portainer#11734](https://github.com/portainer/portainer/issues/11734)
+
+### KaaS
+
+* Ensured Kubernetes 1.29 is supported with Azure Kubernetes Service (AKS) provisioning of KaaS clusters.
+* Ensured Kubernetes 1.29 is supported with Linode Kubernetes Engine (LKE) provisioning of KaaS clusters.
+
+### Portainer
+
+* Fixed an issue introduced in 2.20.0 where a user logged in using external SSO could no longer create a Portainer API access token. [portainer/portainer#11731](https://github.com/portainer/portainer/issues/11731)
+* Resolved an issue where pending actions to be run on environments would still be considered for deleted environments (although not actually run). [portainer/portainer#11735](https://github.com/portainer/portainer/issues/11735)
+* Resolved issue where containers that exited with code 0 were incorrectly marked as failed deployments [portainer/portainer#11724](https://github.com/portainer/portainer/issues/11724)
+* Introduced an additional option to automatically detect the authentication style for OAuth [portainer/portainer#11725](https://github.com/portainer/portainer/issues/11725)
+
+### API Changes
+
+* Fixed the content type for responses from the API endpoint used for token generation [portainer/portainer#11723](https://github.com/portainer/portainer/issues/11723)
+
+<details>
+
+<summary>Modified endpoints: 4</summary>
+
+* `PUT /settings` Update Portainer settings
+  * Parameters
+    * Added: `body.OAuthSettings.AuthStyle`
+  * Return Type
+    * Added: `OAuthSettings.AuthStyle`
+* `GET /settings` Retrieve Portainer settings
+  * Return Type
+    * Added: `OAuthSettings.AuthStyle`
+* `PUT /settings/default_registry` Update Portainer default registry settings
+  * Return Type
+    * Added: `OAuthSettings.AuthStyle`
+* `POST /users/{id}/tokens` Generate an API key for a user
+  * Return Type
+    * Added: `apiKey`
+    * Added: `rawAPIKey`
+
+</details>
+
 ## Release 2.20.1
 
 April 5, 2024

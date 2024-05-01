@@ -50,7 +50,7 @@ Portainer Server has now been installed. You can check to see whether the Portai
 ```bash
 root@server:~# docker ps
 CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS      PORTS                                                                                  NAMES             
-de5b28eb2fa9   portainer/portainer-ce:2.20.1  "/portainer"             2 weeks ago   Up 9 days   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:9443->9443/tcp, :::9443->9443/tcp   portainer
+de5b28eb2fa9   portainer/portainer-ce:2.20.2  "/portainer"             2 weeks ago   Up 9 days   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:9443->9443/tcp, :::9443->9443/tcp   portainer
 ```
 
 ## Logging In
