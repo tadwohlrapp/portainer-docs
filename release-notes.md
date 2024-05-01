@@ -4,7 +4,7 @@ The following release notes are for the **Business Edition** of Portainer. For *
 
 ## Release 2.20.2
 
-1 May, 2024
+May 1, 2024
 
 ### Overview of changes
 
