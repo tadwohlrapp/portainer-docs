@@ -124,6 +124,10 @@ Enabling experimental features on production deployments should be done cautious
 
 This setting contains all of the information that Portainer stores on the `/data` volume, archived in a `tar.gz` file, and is optionally encrypted with a password. This archive is all you need to restore Portainer.
 
+{% hint style="warning" %}
+This backup is **only** intended to back up the Portainer configuration. It does **not** back up what you have deployed on your environments (for example, containers, stacks, services, volumes, etc).&#x20;
+{% endhint %}
+
 ### Backing up to a local disk <a href="#backup-to-local-disk" id="backup-to-local-disk"></a>
 
 Log in as an admin user. From the menu select **Settings**, then scroll down to the **Backup Portainer** section.
