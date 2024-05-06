@@ -16,6 +16,10 @@ docker stop "id-portainer-container"
 
 Next, run the helper using the following command (you'll need to mount the Portainer data volume):
 
+{% hint style="warning" %}
+If your Portainer data volume has a different name than `portainer_data` or you are using a bind mount for your data volume, you will need to adjust the mount in the below `docker run` command to suit your path.
+{% endhint %}
+
 ```
 docker pull portainer/helper-reset-password
 docker run --rm -v portainer_data:/data portainer/helper-reset-password
@@ -55,6 +59,10 @@ docker service scale portainer_portainer=0
 ```
 
 Next, run the [reset password container helper](https://github.com/portainer/helper-reset-password) using the same bind-mount/volume as the data volume:
+
+{% hint style="warning" %}
+If your Portainer data volume has a different name than `portainer_data` or you are using a bind mount for your data volume, you will need to adjust the mount in the below `docker run` command to suit your path.
+{% endhint %}
 
 ```
 docker pull portainer/helper-reset-password
