@@ -8,6 +8,6 @@ Portainer uses SSH to connect to your infrastructure and deploy Kubernetes and t
 
 At present, we support deploying MicroK8s:
 
-{% content-ref url="microk8s.md" %}
-[microk8s.md](microk8s.md)
+{% content-ref url="microk8s/" %}
+[microk8s](microk8s/)
 {% endcontent-ref %}

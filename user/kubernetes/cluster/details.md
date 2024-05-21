@@ -21,7 +21,7 @@ The following information is provided:
 ## MicroK8s cluster management
 
 {% hint style="info" %}
-This section only appears when the environment was provisioned via the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s.md) functionality.
+This section only appears when the environment was provisioned via the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s/) functionality.
 {% endhint %}
 
 In this section you can see and make changes to the configuration of your MicroK8s cluster provisioned by Portainer.
@@ -54,7 +54,7 @@ Node stats are only available when you have [enabled using the metrics API](setu
 
 <figure><img src="../../../.gitbook/assets/2.17-k8s-cluster-nodestats.png" alt=""><figcaption></figcaption></figure>
 
-On MicroK8s environments provisioned with the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s.md) feature, you will also see buttons to add and remove nodes as well as additional action icons to view the MicroK8s status (for control plane nodes) and to connect to the environment via SSH console.
+On MicroK8s environments provisioned with the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s/) feature, you will also see buttons to add and remove nodes as well as additional action icons to view the MicroK8s status (for control plane nodes) and to connect to the environment via SSH console.
 
 <figure><img src="../../../.gitbook/assets/2.19-kubernetes-cluster-microk8s-nodes.png" alt=""><figcaption></figcaption></figure>
 

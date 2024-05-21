@@ -2,19 +2,78 @@
 
 The following release notes are for the **Business Edition** of Portainer. For **Community Edition** release notes, refer to the [GitHub releases page](https://github.com/portainer/portainer/releases).
 
+## Release 2.20.3
+
+May 21, 2024
+
+This is an STS (Short-Term Support) release. Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
+
+### Important Notice
+
+On update to this Portainer version, stacks and edge stacks will have their containers restarted after updating them. This is caused by the use of Docker Compose 2.26.1, which requires this restart. Note: If you already updated to 2.20.0, 2.20.1 or 2.20.2 previously, stacks and edge stacks that DO NOT use relative paths may already have had their containers restarted on update of them, and you would not then see a restart again.
+
+### Edge
+
+* Resolved an issue where edge configuration files were not being backed up.
+* Resolved an issue where device registration via the waiting room was extremely slow during large-scale edge deployment.
+* Resolved an issue where users were unable to remove or update an edge configuration that was pending deployment on a device.
+
+### Docker
+
+* Resolved an issue introduced in 2.20.0 where stopped Docker containers were incorrectly shown with an Unused badge. [portainer/portainer#11797](https://github.com/portainer/portainer/issues/11797)
+
+### Swarm
+
+* Resolved an issue where the Edit Container page on Swarm environments was not loading properly. [portainer/portainer#11830](https://github.com/portainer/portainer/issues/11830)
+
+### Kubernetes
+
+* Resolved an issue introduced in 2.20.0 where, when a placement rule was created for a Kubernetes application, if it was not met for a node, then it would not show up in the expand rows of the Application Details Placement constraints/preferences table. [portainer/portainer#11826](https://github.com/portainer/portainer/issues/11826)
+* Resolved an issue when creating a MicroK8s cluster where using a hyphen to specify an IP range had stopped working in 2.19.
+* Resolved an issue where the "More resources" views in Kubernetes would redirect to the Dashboard upon refresh.
+* Resolved an issue in the Kubernetes Applications List page where the namespace filter selection of a system namespace did not persist on refresh or revisit. [portainer/portainer#11798](https://github.com/portainer/portainer/issues/11798)
+* Introduced a tooltip to the 'Rollback to previous configuration' button in the Kubernetes Application Details screen to explain how rollback works. [portainer/portainer#11804](https://github.com/portainer/portainer/issues/11804)
+* Prevented a panic from occurring when mistakenly attempting to deploy a Kubernetes application and supplying a docker-compose.yaml instead of a Kubernetes manifest. [portainer/portainer#11796](https://github.com/portainer/portainer/issues/11796)
+
+### MicroK8s
+
+* Applied updates and ensured confirmed Kubernetes 1.30 support with creation of MicroK8s clusters.
+* Introduced an offline mode for creation of a MicroK8s Kubernetes cluster on air-gapped nodes.
+
+### Portainer
+
+* Resolved an issue where pending actions to be run on environments could end up in a panic state. [portainer/portainer#11818](https://github.com/portainer/portainer/issues/11818)
+* Resolved an issue where the subpath of an image tag was incorrectly truncated. [portainer/portainer#11831](https://github.com/portainer/portainer/issues/11831)
+* Resolved an issue around excessive GitHub API Portainer version checking on page loads. [portainer/portainer#11795](https://github.com/portainer/portainer/issues/11795)
+* Resolved an issue where loading a large number of volumes took an unreasonable amount of time [portainer/portainer#11829](https://github.com/portainer/portainer/issues/11829)
+* Resolved an issue in the agent where removing an undeployed stack resulted in errors. [portainer/portainer#11828](https://github.com/portainer/portainer/issues/11828)
+* Corrected the title wording and some UI styling in the Authentication Logs and Activity Logs screens. [portainer/portainer#11807](https://github.com/portainer/portainer/issues/11807)
+* Resolved an issue with deploying of containers via Portainer running on Windows Server 2022, where an error regarding CAP\_AUDIT\_WRITE was occurring. [portainer/portainer#11805](https://github.com/portainer/portainer/issues/11805)
+
+### API Changes
+
+<details>
+
+<summary>New endpoints: 1</summary>
+
+* `POST /endpoints/edge/trust` Associate one or more Edge environments in the waiting room to environments
+
+</details>
+
+<details>
+
+<summary>Deprecated endpoints: 1</summary>
+
+* `POST /endpoints/{id}/edge/trust` Associate an Edge environment in the waiting room to an environment
+  * Use `POST /endpoints/edge/trust` instead
+
+</details>
+
 ## Release 2.20.2
 
 May 1, 2024
 
-### Overview of changes
-
-Introducing the new Portainer BE 2.20.2 release. This is an STS (Short-Term Support) release.
-
-As you gear up for the transition to Portainer BE 2.20.2, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to back up your configurations via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
-
-A Short-Term Support release can be considered as "bleeding-edge" as it will contain the latest features and functionality we've developed. The STS releases (including this one) will go through a significant amount of pre-release testing, but there may be changes that could cause regressions and features that might see further iterations. As such, if stability is a crucial concern for your setup we wouldn't recommend deploying STS releases on production environments.
-
-Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
+This is an STS (Short-Term Support) release. Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
 
 ### Resolved CVEs
 
@@ -90,15 +149,7 @@ Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/
 
 April 5, 2024
 
-### Overview of changes
-
-Introducing the new Portainer BE 2.20.1 release. This is an STS (Short-Term Support) release.
-
-As you gear up for the transition to Portainer BE 2.20.1, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to back up your configurations via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
-
-A Short-Term Support release can be considered as "bleeding-edge" as it will contain the latest features and functionality we've developed. The STS releases (including this one) will go through a significant amount of pre-release testing, but there may be changes that could cause regressions and features that might see further iterations. As such, if stability is a crucial concern for your setup we wouldn't recommend deploying STS releases on production environments.
-
-Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
+This is an STS (Short-Term Support) release. Read more in our ["Portainer 2.20 STS" blog post](https://www.portainer.io/blog/portainer-2.20-release).
 
 ### Important Note Regarding Docker 26 Support
 
