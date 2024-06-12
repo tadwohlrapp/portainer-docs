@@ -12,7 +12,7 @@ To enable encryption on Docker Standalone, you will first need to create a secre
 
 ### Create a secret
 
-Create a text file on the system running Docker Standalone that is accessible to the Docker executable, yet somewhere secure. For this example, we'll assume the file is called `/root/secrets/portainer_key`. In this file enter a secret. This will be the key used to encrypt the Portainer database.
+Create a text file on the system running Docker Standalone that is accessible to the Docker executable, yet somewhere secure. For this example, we'll assume the file is called `/root/secrets/portainer`. In this file enter a secret. This will be the key used to encrypt the Portainer database.
 
 ### Mount the secret
 
@@ -26,7 +26,7 @@ docker rm portainer
 To encrypt the database, add a bind mount to the `docker run` command that mounts your secret in `/run/secrets/portainer`:
 
 ```
--v /root/secrets/portainer_key:/run/secrets/portainer
+-v /root/secrets/portainer:/run/secrets/portainer
 ```
 
 Your final `docker run` command may look like this:
@@ -36,8 +36,8 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     --restart=always \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v portainer_data:/data \
-    -v /root/secrets/portainer_key:/run/secrets/portainer \
-    portainer/portainer-ee:latest
+    -v /root/secrets/portainer:/run/secrets/portainer \
+    portainer/portainer-ee:2.19.5
 ```
 
 When the Portainer container starts, it will encrypt any existing database, or for a fresh install will create a new encrypted database as part of the install process.
@@ -51,10 +51,10 @@ To enable encryption on Docker Swarm, you will first need to create a secret. Yo
 On a manager node, you can run the following command to create a secret:
 
 ```
-echo "This is a secret" | docker secret create portainer_key -
+echo "This is a secret" | docker secret create portainer -
 ```
 
-Replace `This is a secret` with your secret. This will create a secret named `portainer_key`, which will be the key used to encrypt the Portainer database.
+Replace `This is a secret` with your secret. This will create a secret named `portainer`, which will be the key used to encrypt the Portainer database.
 
 {% hint style="info" %}
 You can also create a secret in Portainer if you are adding encryption to an existing installation.
@@ -66,7 +66,7 @@ To add encryption to an existing Portainer deployment on Docker Swarm, you can u
 
 ```
 docker service update \
-    --secret-add src=portainer_key,target="/run/secrets/portainer" \
+    --secret-add src=portainer,target="/run/secrets/portainer" \
     portainer
 ```
 
@@ -78,14 +78,39 @@ To install Portainer on Docker Swarm with encryption, you will need to edit the 
 
 ```
 secrets:
-  - portainer_key
+  - portainer
 ```
 
-This tells the service to use the `portainer_key` secret created earlier. With the secret added, your full `portainer` service definition may look like this:
+This tells the service to use the `portainer_key` secret created earlier.&#x20;
+
+In addition, because we created it separately earlier we will need to specify it as `external` so that Docker knows not to create it when creating the stack. To do this we add a `secrets:` definition outside of the `services:` definition for the `portainer` secret:
 
 ```
+secrets:
   portainer:
-    image: portainer/portainer-ee:latest
+    external: true
+```
+
+With the secret added, your full `portainer` service definition may look like this:
+
+```
+version: '3.2'
+
+services:
+  agent:
+    image: portainer/agent:2.19.5
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    networks:
+      - agent_network
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+
+  portainer:
+    image: portainer/portainer-ee:2.19.5
     command: -H tcp://tasks.agent:9001 --tlsskipverify
     ports:
       - "9443:9443"
@@ -101,7 +126,19 @@ This tells the service to use the `portainer_key` secret created earlier. With t
       placement:
         constraints: [node.role == manager]
     secrets:
-      - portainer_key
+      - portainer
+
+networks:
+  agent_network:
+    driver: overlay
+    attachable: true
+
+volumes:
+  portainer_data:
+      
+secrets:
+  portainer:
+    external: true
 ```
 
 Save your changes, then use the compose file to deploy your Portainer installation as covered in the Swarm installation instructions. The database will be deployed encrypted as part of the installation process.
@@ -127,7 +164,7 @@ Once the secret has been created, we need to modify the YAML file to mount the s
 ```
 containers:
   - name: portainer
-    image: "portainer/portainer-ee:latest"
+    image: "portainer/portainer-ee:2.19.5"
     imagePullPolicy: Always
     args:          
     volumeMounts:
