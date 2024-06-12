@@ -81,7 +81,7 @@ secrets:
   - portainer
 ```
 
-This tells the service to use the `portainer_key` secret created earlier.&#x20;
+This tells the service to use the `portainer` secret created earlier.&#x20;
 
 In addition, because we created it separately earlier we will need to specify it as `external` so that Docker knows not to create it when creating the stack. To do this we add a `secrets:` definition outside of the `services:` definition for the `portainer` secret:
 
