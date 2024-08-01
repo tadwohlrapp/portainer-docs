@@ -4,6 +4,10 @@
 These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/swarm/wcs.md).
 {% endhint %}
 
+{% hint style="warning" %}
+Portainer version 2.19 [does not fully support Docker version 26 and above](https://www.portainer.io/blog/portainer-and-docker-26). If you are using Docker 26 or newer we recommend instead [installing Portainer 2.20](https://docs.portainer.io/v/2.20/start/install-ce/server/swarm/wcs).
+{% endhint %}
+
 ## Introduction
 
 Portainer consists of two elements, the _Portainer Server_, and the _Portainer Agent_. Both elements run as lightweight Docker containers on a Docker engine. This document will help you install the Portainer Server container on your Windows server with Windows Containers. To add a new WCS environment to an existing Portainer Server installation, please refer to the [Portainer Agent installation instructions](../../../../admin/environments/add/swarm/agent.md).

@@ -4,7 +4,9 @@
 These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/swarm/wcs.md).
 {% endhint %}
 
-
+{% hint style="warning" %}
+Portainer version 2.19 [does not fully support Docker version 26 and above](https://www.portainer.io/blog/portainer-and-docker-26). If you are using Docker 26 or newer we recommend instead [installing Portainer 2.20](https://docs.portainer.io/v/2.20/start/install/server/swarm/wcs).
+{% endhint %}
 
 ## Introduction
 
