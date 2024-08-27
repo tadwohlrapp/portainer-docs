@@ -54,6 +54,8 @@ If you would prefer to manually update your Portainer installation, choose your 
 
 ### Update the Portainer Agent
 
+To update the standard (non-Edge) Portainer Agent, you can find instructions in the above platform-specific links ([Docker Standalone](docker.md#agent-only-upgrade), [Docker Swarm](swarm.md), and [Kubernetes](kubernetes.md)).
+
 If you are using the Portainer Edge Agent, we have specific update instructions for you:
 
 {% content-ref url="edge.md" %}
