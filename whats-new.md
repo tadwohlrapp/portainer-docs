@@ -18,13 +18,13 @@ The first change you're likely to notice in 2.21 is an update to the menu struct
 
 Our ongoing efforts to improve the performance of Portainer continue in this release. Along with the updated menu structure we have implemented additional caching to improve page load times as well as moved more of our pages and page components to the React framework. We've also added more background population of page contents so that rendering the crucial information comes first with additional longer to retrieve information being loaded asynchronously.
 
-For Kubernetes users, we've added a per-user toggle to [enable front-end data caching for Kubernetes environments](using-portainer/account-settings.md#application-settings) that can also help with page load times. This is configurable through the [My account](using-portainer/account-settings.md) page.
+For Kubernetes users, we've added a per-user toggle to [enable front-end data caching for Kubernetes environments](user/account-settings.md#application-settings) that can also help with page load times. This is configurable through the [My account](user/account-settings.md) page.
 
 ### Support for streaming Portainer activity and authentication logs to external systems ![](.gitbook/assets/button\_be.png)
 
 When deploying Portainer within your organization you may have the desire or perhaps compliancy need to ship your log files to an external log aggregator. In 2.21 BE we've added the ability to push Portainer's activity and authentication logs in syslog format to an external Security Information and Event Management (SIEM) system without having to write a custom wrapper around the Portainer API.
 
-At present this feature is considered experimental and is [configurable via CLI options](advanced-topics/siem.md), but we're intending to expand this feature further in the future based on customer feedback.
+At present this feature is considered experimental and is [configurable via CLI options](advanced/siem.md), but we're intending to expand this feature further in the future based on customer feedback.
 
 ### Buttons to reload image up to date indicators ![](.gitbook/assets/button\_be.png)
 
@@ -36,13 +36,13 @@ Image indicators are cached for 24 hours after they are loaded for performance r
 
 ### List and manage more Kubernetes object types ![](.gitbook/assets/button\_be.png)
 
-We've expanded the types of Kubernetes objects you can list and manage through Portainer in 2.21. In this version, admins will see new pages for [Service Accounts](using-portainer/kubernetes/more-resources/service-accounts.md), [Cluster Roles and Cluster Role Bindings](using-portainer/kubernetes/more-resources/cluster-roles.md), and [Roles and Role Bindings](using-portainer/kubernetes/more-resources/namespace-roles.md) under the new **More Resources** menu item.
+We've expanded the types of Kubernetes objects you can list and manage through Portainer in 2.21. In this version, admins will see new pages for [Service Accounts](user/kubernetes/more-resources/service-accounts.md), [Cluster Roles and Cluster Role Bindings](user/kubernetes/more-resources/cluster-roles.md), and [Roles and Role Bindings](user/kubernetes/more-resources/namespace-roles.md) under the new **More Resources** menu item.
 
 <figure><img src=".gitbook/assets/2.20-whatsnew-moreresources.png" alt=""><figcaption></figcaption></figure>
 
 ### Enforce admin-only Kubernetes secret viewing in the UI ![](.gitbook/assets/button\_be.png)&#x20;
 
-As a cluster administrator you may want to restrict the viewing and editing of secrets within the cluster to administrator users. In 2.21 [we've added a toggle](using-portainer/kubernetes/cluster/setup.md#security) that allows you to do just that.
+As a cluster administrator you may want to restrict the viewing and editing of secrets within the cluster to administrator users. In 2.21 [we've added a toggle](user/kubernetes/cluster/setup.md#security) that allows you to do just that.
 
 <figure><img src=".gitbook/assets/2.20-whatsnew-adminsecrets.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,15 +50,15 @@ Note that due to limitations within Kubernetes itself, this feature does not hid
 
 ### Templates for Edge ![](.gitbook/assets/button\_be.png)&#x20;
 
-Template functionality has existed in Portainer for non-Edge environments for some time, and in 2.21 we're bringing that functionality to Edge Stacks. With Edge Compute enabled, you'll find a new [Edge Templates](using-portainer/edge/templates/) option in the left-hand menu. Here you can deploy an Edge Stack from our pre-provided templates, or create and manage your own custom Edge Stack templates for your applications.
+Template functionality has existed in Portainer for non-Edge environments for some time, and in 2.21 we're bringing that functionality to Edge Stacks. With Edge Compute enabled, you'll find a new [Edge Templates](user/edge/templates/) option in the left-hand menu. Here you can deploy an Edge Stack from our pre-provided templates, or create and manage your own custom Edge Stack templates for your applications.
 
 <figure><img src=".gitbook/assets/2.20-whatsnew-edgetemplates.png" alt=""><figcaption></figcaption></figure>
 
-Edge Templates support the same functionality as our non-Edge templates, including variables and Git repository deployments, and can also be deployed from the [Create Edge stack](using-portainer/edge/stacks/add.md) page.
+Edge Templates support the same functionality as our non-Edge templates, including variables and Git repository deployments, and can also be deployed from the [Create Edge stack](user/edge/stacks/add.md) page.
 
 ### New Edge Administrator role ![](.gitbook/assets/button\_be.png)
 
-2.21 also introduces a new [Edge administrator role](administering-portainer/settings/edge.md#edge-compute-access) for Edge Compute users. This role lets you give users full control over resources in Edge environments without giving them full administrative access to all of Portainer.
+2.21 also introduces a new [Edge administrator role](admin/settings/edge.md#edge-compute-access) for Edge Compute users. This role lets you give users full control over resources in Edge environments without giving them full administrative access to all of Portainer.
 
 <figure><img src=".gitbook/assets/2.20-whatsnew-edgeadmin.png" alt=""><figcaption></figcaption></figure>
 
@@ -78,7 +78,7 @@ As part of our menu restructuring and general usability improvements, in 2.21 we
 
 <figure><img src=".gitbook/assets/2.20-whatsnew-helm.png" alt=""><figcaption></figcaption></figure>
 
-You can now provision applications from Helm charts via the standard [Create from manifest](using-portainer/kubernetes/applications/manifest.md) option under [Applications](using-portainer/kubernetes/applications/), and Helm deployments will appear in the Applications list alongside other non-Helm deployments. We've also made some improvements to how you can configure and manage your Helm chart repositories within Portainer.
+You can now provision applications from Helm charts via the standard [Create from manifest](user/kubernetes/applications/manifest.md) option under [Applications](user/kubernetes/applications/), and Helm deployments will appear in the Applications list alongside other non-Helm deployments. We've also made some improvements to how you can configure and manage your Helm chart repositories within Portainer.
 
 ### Allow stopping a Kubernetes app by scaling to 0 ![](.gitbook/assets/button\_be.png) ![](.gitbook/assets/button\_ce.png)
 
@@ -86,4 +86,4 @@ Docker Swarm users have for a long time been able to scale their services to 0, 
 
 ### Added option to disable stacks for Kubernetes ![](.gitbook/assets/button\_be.png) ![](.gitbook/assets/button\_ce.png)
 
-When deploying an application on Kubernetes, we provide the ability to define a “stack” that your deployment belongs to, which can be useful for grouping deployments. However, this functionality may not always be ideal for everyone’s workflow, so in 2.21 we’ve added the [option to disable stack functionality](administering-portainer/settings/general.md#kubernetes-settings) for Kubernetes environments.
+When deploying an application on Kubernetes, we provide the ability to define a “stack” that your deployment belongs to, which can be useful for grouping deployments. However, this functionality may not always be ideal for everyone’s workflow, so in 2.21 we’ve added the [option to disable stack functionality](admin/settings/general.md#kubernetes-settings) for Kubernetes environments.

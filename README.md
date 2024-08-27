@@ -6,7 +6,7 @@ Welcome to Portainer's official documentation site.
 
 **Portainer Community Edition (CE)** is our foundation. With over half a million regular users, CE is a powerful, open source toolset that allows you to easily build and manage containers in Docker, Docker Swarm, Kubernetes and Azure ACI.
 
-**Portainer Business Edition (BE)** is our commercial offering. With features geared towards businesses and larger organizations such as [Role-Based Access Control](administering-portainer/user/roles.md), [registry management](administering-portainer/registries/browse.md), and [dedicated support](./#getting-support), Portainer BE is a powerful toolset that allows you to easily build and manage containers in Docker, Docker Swarm, Kubernetes and Azure ACI.
+**Portainer Business Edition (BE)** is our commercial offering. With features geared towards businesses and larger organizations such as [Role-Based Access Control](admin/user/roles.md), [registry management](admin/registries/browse.md), and [dedicated support](./#getting-support), Portainer BE is a powerful toolset that allows you to easily build and manage containers in Docker, Docker Swarm, Kubernetes and Azure ACI.
 
 {% hint style="info" %}
 Portainer Business Edition requires a license key to install and use. If you don't currently have a license key, you can [request three nodes free](https://www.portainer.io/get-a-license) of Portainer Business Edition or [purchase a license](https://www.portainer.io/pricing).
@@ -36,7 +36,7 @@ Community Edition, five/three nodes free and Home & Student users can get suppor
 * **Ask questions** either in our [GitHub Discussions](https://github.com/orgs/portainer/discussions/categories/help) forum or the [community Slack channel](https://join.slack.com/t/portainer/shared\_invite/zt-21zpww5ab-mG\_lA7UXbWL3HW3sPqjqEA). Other platforms exist (Reddit, Discord, Stack Overflow) but we are less active in those spaces.
 * **Log bugs** in [GitHub Issues](https://github.com/portainer/portainer/issues) so they can be properly managed.
 * **Flag vulnerabilities** by emailing [security@portainer.io](mailto:security@portainer.io) so we can deal with them immediately.
-* **Flag documentation issues** via our [GitHub documentation channel](https://github.com/portainer/portainer-docs/issues) (or start [contributing](contribute-to-portainer/contribute.md) and make our documentation better!).
+* **Flag documentation issues** via our [GitHub documentation channel](https://github.com/portainer/portainer-docs/issues) (or start [contributing](contribute/contribute.md) and make our documentation better!).
 
 ### Business Edition Customers
 

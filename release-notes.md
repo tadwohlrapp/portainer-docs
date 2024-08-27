@@ -198,7 +198,7 @@ March 19, 2024
 
 Introducing the new Portainer BE 2.20.0 release. This is an STS (Short-Term Support) release.
 
-As you gear up for the transition to Portainer BE 2.20.0, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to [back up your configurations](administering-portainer/settings/general.md#back-up-portainer) via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
+As you gear up for the transition to Portainer BE 2.20.0, our latest STS (Short-Term Support) installment, ensuring a smooth upgrade is key. We urge you to [back up your configurations](admin/settings/general.md#back-up-portainer) via the Portainer UI beforehand. This backup acts as your safety net, ensuring you can gracefully revert to the prior version or state if the new frontier proves too wild. Additionally, pore over the release notes for catching any compatibility issues, understanding deprecated functionalities, and identifying essential tweaks to your current setup. Your diligence will pave the way for a seamless update.
 
 A Short-Term Support release can be considered as "bleeding-edge" as it will contain the latest features and functionality we've developed. The STS releases (including this one) will go through a significant amount of pre-release testing, but there may be changes that could cause regressions and features that might see further iterations. As such, if stability is a crucial concern for your setup we wouldn't recommend deploying STS releases on production environments.
 
@@ -668,7 +668,7 @@ August 31, 2023
 * Resolved an issue where the 'change windows setting' option was shifting outside of the div when a user was using a smaller screen
 * Fixed an API issue where the incorrect parameter HasEdgeGroup was being used instead of HasEdgeJob for endpoint /edge\_groups. Users relying on the HasEdgeGroup parameter should now use HasEdgeJob to achieve the intended functionality.
 * Introducing the ability to use environment variables for edge stack.
-* Introducing a new feature: [GitOps Edge Configurations](using-portainer/edge/stacks/add.md#gitops-edge-configurations), which simplify edge device configurations with GitOps. Effortlessly manage settings via version-controlled Git repositories for enhanced configuration control.
+* Introducing a new feature: [GitOps Edge Configurations](user/edge/stacks/add.md#gitops-edge-configurations), which simplify edge device configurations with GitOps. Effortlessly manage settings via version-controlled Git repositories for enhanced configuration control.
 * Introducing the latest commit ID display in edge stacks. Perfect for GitOps updates, this feature lets you easily track your running version. Stay informed and up-to-date effortlessly.
 * Introduced ability to push per-device configurations effortlessly. Bundle settings in a zip package, Portainer matches and delivers to edge devices. Simplify management, enhance precision.
 * Fixed an issue where the count of edge stack deployments was incorrect when dealing with asynchronous devices exceeding 100.
